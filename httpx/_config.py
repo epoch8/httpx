@@ -5,6 +5,7 @@ import os
 import ssl
 import typing
 from pathlib import Path
+from functools import cache
 
 import certifi
 
@@ -44,6 +45,7 @@ class UnsetType:
 UNSET = UnsetType()
 
 
+@cache
 def create_ssl_context(
     cert: CertTypes | None = None,
     verify: VerifyTypes = True,
